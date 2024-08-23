@@ -28,6 +28,7 @@ body {
 .envelope-wrapper {
   background: var(--bg-envelope-color);
   box-shadow: 0 0 40px var(--shadow-color);
+  position: relative; /* Added for correct positioning of child elements */
 }
 
 .envelope {
@@ -40,6 +41,7 @@ body {
   content: "";
   position: absolute;
   top: 0;
+  left: 0; /* Ensure it starts from the left edge */
   z-index: 2;
   border-top: 130px solid var(--envelope-tab);
   border-right: 150px solid transparent;
@@ -51,7 +53,9 @@ body {
 .envelope::after {
   content: "";
   position: absolute;
-  z-index: 2;
+  top: 0; /* Ensure it starts from the top edge */
+  left: 0; /* Ensure it starts from the left edge */
+  z-index: 1; /* Correct z-index for layering */
   width: 0px;
   height: 0px;
   border-top: 130px solid transparent;
